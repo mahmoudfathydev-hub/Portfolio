@@ -4,31 +4,27 @@
 <head>
     <meta charset="utf-8">
     <title>Mahmoud Fathy</title>
+</head>
+
+<body>
     <script>
         // GitHub Pages SPA redirect
         (function () {
             var path = window.location.pathname;
-            var search = window.location.search;
-            var hash = window.location.hash;
+            var segments = path.split('/');
+            var repoName = 'Mahmoud-Fathy';
+            var repoIndex = segments.indexOf(repoName);
 
-            // Remove the base path from the beginning
-            var cleanPath = path.replace(/^\/Mahmoud-Fathy/, '');
-
-            // Redirect to index.html with the full path as hash
-            window.location.replace(
-                window.location.origin +
-                '/Mahmoud-Fathy/' +
-                'index.html' +
-                '#/' +
-                cleanPath +
-                search +
-                hash
-            );
+            if (repoIndex !== -1) {
+                // Remove everything up to and including the repo name
+                var cleanPath = '/' + segments.slice(repoIndex + 1).join('/');
+                window.location.replace(window.location.origin + path + '#/' + cleanPath);
+            } else {
+                // Fallback redirect
+                window.location.replace(window.location.origin + path + '#/');
+            }
         })();
     </script>
-</head>
-
-<body>
     <p>Redirecting to main application...</p>
 </body>
 

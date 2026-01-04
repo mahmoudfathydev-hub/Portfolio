@@ -6,20 +6,25 @@
     <title>Mahmoud Fathy</title>
     <script>
         // GitHub Pages SPA redirect
-        var path = window.location.pathname;
-        var search = window.location.search;
-        var hash = window.location.hash;
+        (function () {
+            var path = window.location.pathname;
+            var search = window.location.search;
+            var hash = window.location.hash;
 
-        // Redirect to index.html with the full path
-        window.location.replace(
-            window.location.origin +
-            '/Mahmoud-Fathy/' +
-            'index.html' +
-            '#/' +
-            path.replace('/Mahmoud-Fathy/', '') +
-            search +
-            hash
-        );
+            // Remove the base path from the beginning
+            var cleanPath = path.replace(/^\/Mahmoud-Fathy/, '');
+
+            // Redirect to index.html with the full path as hash
+            window.location.replace(
+                window.location.origin +
+                '/Mahmoud-Fathy/' +
+                'index.html' +
+                '#/' +
+                cleanPath +
+                search +
+                hash
+            );
+        })();
     </script>
 </head>
 

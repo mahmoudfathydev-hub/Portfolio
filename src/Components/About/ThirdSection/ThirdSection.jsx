@@ -1,5 +1,5 @@
 import edusection from "../../../images/edusection.png"
-import "./Thirdsection.scss"
+import "./ThirdSection.scss"
 
 export default function ThirdSection() {
 

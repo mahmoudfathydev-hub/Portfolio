@@ -1,0 +1,12 @@
+.skills-big-section {
+  .main-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.skills-big-section {
+    position: relative; 
+    overflow: hidden;
+    z-index: 1;
+}

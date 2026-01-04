@@ -1,0 +1,126 @@
+.left-section {
+  width: 50%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orbit {
+  width: 350px;
+  height: 350px;
+  position: relative;
+}
+
+.orbit-rotator {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  --radius: 180px;
+  animation: rotate 20s linear infinite;
+
+  &.paused {
+    animation-play-state: paused;
+  }
+}
+
+/* 🔵 الدائرة */
+.big-circle-skills {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: visible;
+}
+
+/* 🔴 الكور الكبيرة */
+.category-node {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 5;
+  transform: rotate(calc(var(--i) * 90deg)) translate(var(--radius))
+    rotate(calc(var(--i) * -90deg));
+  transition: 0.4s;
+
+  &:hover {
+    scale: 1.15;
+    background: #e40037;
+  }
+
+  &.active {
+    background: #e40037;
+  }
+}
+
+.category-title {
+  font-size: 12px;
+  text-align: center;
+}
+
+.skills-orbit {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.skill-node {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(calc(360deg / var(--total) * var(--j))) translate(70px)
+    rotate(calc(-360deg / var(--total) * var(--j)));
+  animation: pop 0.3s ease forwards;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.hovered {
+    box-shadow: 0 0 12px 4px rgba(228, 0, 55, 0.7);
+    transform: rotate(calc(360deg / var(--total) * var(--j))) translate(70px)
+      rotate(calc(-360deg / var(--total) * var(--j))) scale(1.2);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pop {
+  from {
+    scale: 0;
+    opacity: 0;
+  }
+
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}

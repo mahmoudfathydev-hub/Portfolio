@@ -1,0 +1,116 @@
+:root {
+    --white-100: #ffffff;
+    --white-200: #f2f2f2;
+    --white-300: #e6e6e6;
+    --white-400: #d9d9d9;
+    --white-500: #cccccc;
+    --black-100: #0a0a0a;
+    --black-200: #1a1a1a;
+    --black-300: #333333;
+    --black-400: #4d4d4d;
+    --black-500: #666666;
+    --red-100: #ffe5eb;
+    --red-200: #ffb3c2;
+    --red-300: #ff8099;
+    --red-400: #ff4d70;
+    --red-500: #e40037;
+    --gray-100: #f5f5f5;
+    --gray-200: #d9d9d9;
+    --gray-300: #bfbfbf;
+    --gray-400: #a6a6a6;
+    --gray-500: #8c8c8c;
+    --shadow-white: 0 4px 6px rgba(255, 255, 255, 0.3);
+    --shadow-red: 0 4px 6px rgba(228, 0, 55, 0.4);
+    --shadow-gray: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+.BottomSection {
+    width: 100%;
+    padding: 50px 20px;
+    color: #fff;
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+
+        .sec1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .skill-card {
+                width: 400px;
+                padding: 30px 25px;
+                border-radius: 20px;
+                backdrop-filter: blur(15px);
+                background: rgba(255, 255, 255, 0.05);
+                box-shadow: 0 10px 30px rgba(228, 0, 55, 0.4);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+
+                &:hover {
+                    transform: translateY(-10px) scale(1.05);
+                    box-shadow: 0 15px 40px rgba(228, 0, 55, 0.6);
+                    background: rgba(228, 0, 55, 0.1);
+                }
+
+                .skill-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    color: var(--red-500);
+                    margin-bottom: 20px;
+                    position: relative;
+
+                    .icon {
+                        font-size: 2.5rem;
+                        transition: transform 0.5s ease, color 0.5s ease;
+                        &:hover {
+                            transform: rotate(20deg) scale(1.2);
+                            color: #ff4d70;
+                        }
+                    }
+                }
+
+                .skill-text {
+                    text-align: center;
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    opacity: 0;
+                    animation: fadeInText 0.8s forwards;
+                }
+            }
+        }
+
+        .sec2 {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            img {
+                width: 400px;
+                border-radius: 20px;
+                transition: transform 0.5s ease, box-shadow 0.5s ease;
+                &:hover {
+                    transform: scale(1.05) rotate(2deg);
+                    box-shadow: 0 15px 40px rgba(255, 77, 112, 0.6);
+                }
+            }
+        }
+    }
+}
+
+// Fade animation for text change
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
